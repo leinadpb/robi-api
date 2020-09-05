@@ -34,4 +34,5 @@ public class AppUserRepository extends BaseRepository<AppUser> {
     public Boolean emailAvailable(String email) {
         return (Boolean) execute("check_email_available", email, "email", Types.BOOLEAN);
     }
+
 }

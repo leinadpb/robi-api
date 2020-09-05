@@ -12,6 +12,7 @@ public class AppUser extends BaseEntity {
     private String accessToken;
     private Boolean requirePasswordChange;
     private Boolean requireLogin;
+    private String robotEndpoint;
 
     public AppUser() {
 
@@ -85,4 +86,11 @@ public class AppUser extends BaseEntity {
         return locked;
     }
 
+    public String getRobotEndpoint() {
+        return robotEndpoint;
+    }
+
+    public void setRobotEndpoint(String robotEndpoint) {
+        this.robotEndpoint = robotEndpoint;
+    }
 }

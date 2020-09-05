@@ -34,6 +34,7 @@ public class AuthController {
         AppUser user = userDetailsService.login(authRequest.getUsername(), authRequest.getPassword());
         resp.addHeader("Authorization", user.getAccessToken());
         user.setPassword(null);
+        user.setRobotEndpoint(null);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -47,6 +48,7 @@ public class AuthController {
         String userId = req.getHeader("user_id");
         AppUser user = userDetailsService.loadUserByID(Long.parseLong(userId));
         user.setPassword(null);
+        user.setRobotEndpoint(null);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -62,6 +64,7 @@ public class AuthController {
                 authenticationRequest.getEmail(), authenticationRequest.getPassword());
         AppUser user = userDetailsService.loadUserByID(createdId);
         user.setPassword(null);
+        user.setRobotEndpoint(null);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 

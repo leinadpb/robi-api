@@ -14,6 +14,7 @@ CREATE TABLE APP_USERS (
     CREATED_AT TIMESTAMP DEFAULT NOW(),
     UPDATED_AT TIMESTAMP,
     STATUS CHAR(1),
+    robot_endpoint varchar(800),
 
     UNIQUE (USERNAME),
     UNIQUE (email)
@@ -65,6 +66,7 @@ BEGIN
                              'email', U.email,
                              'fullName', U.full_name,
                              'locked', U.locked,
+                             'robotEndpoint', U.robot_endpoint,
                              'requireLogin', U.require_login                         )
     FROM APP_USERS U WHERE ID = p_id;
 END;
